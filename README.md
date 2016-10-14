@@ -1,0 +1,2 @@
+# AlgorithmPractice_web
+前端javascript小算法
