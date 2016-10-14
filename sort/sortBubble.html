@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<a href="javascript:;" onClick="test()">ClickHereToTest</a>
+	<script>
+/*
+* 冒泡排序法
+* 它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。
+* 走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端.
+*
+*/
+function sortBubble(arr){
+	var len = arr.length;
+	for(var i = 0; i < len-2; i++){
+		for(var j = len-1; j>=i-1; j--){
+			if(arr[j] < arr[j-1]){
+				var tem = arr[j-1];
+				arr[j-1] = arr[j];
+				arr[j]	= tem;
+			}
+		}
+	}
+	return arr;
+}
+function sortBubble2(arr){
+	var len = arr.length;
+	for(var i = len-1; i > 0; i--){
+		for(var j = 0; j<i; j++){
+			if(arr[j] > arr[j+1]){
+				var tem = arr[j+1];
+				arr[j+1] = arr[j];
+				arr[j]	= tem;
+			}
+		}
+	}
+	return arr;
+}
+function test (){
+	var arr_tosort = [3, 2, 4, 9, 1, 5, 7, 6, 8];
+	console.log(sortBubble2(arr_tosort));
+}
+	</script>
+</body>
+</html>
