@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	/*
+	给定两个均由大写英文字母组成的字符串（A-Z），检查这两个字符串是否包含相同的字母
+	*
+	*/
+	function hasSame(str1,str2) {
+		var base = str1;
+		var compare = str2;
+		if (str1.length > str2.length) {
+			base = str2;
+			compare=str1;
+		}
+		for(i in compare){
+			if (base.indexOf(compare[i]) == -1) {return false;};
+		}
+		return true;
+	}
+	  
+	console.log(hasSame('FDJ','DJDF'));
+	console.log(hasSame('MIJJ','MOJI'));
+
+	</script>
+</body>
+</html>

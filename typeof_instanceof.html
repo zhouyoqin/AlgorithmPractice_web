@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>typeof_instanceof</title>
+</head>
+<body>
+	http://blog.csdn.net/liranke/article/details/5574791
+	https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof
+	http://www.jb51.net/article/44372.htm
+	<script>
+		function test() {};
+		var arr = [1,"string",true,{name:"false"},[1,2,3],null,undefined,NaN,test];
+		for(i in arr){
+			console.log("typeof: " + arr[i] + " is " + typeof arr[i]);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	/*
+	给定两个均由大写英文字母组成的字符串（A-Z），检查这两个字符串是否包含相同的字母
+	*
+	*/
+	function getSymmetricNumber(number) {
+		number++;
+		while(!isOpposite(number)){
+			number++;
+		}
+		return number;
+	}
+
+	function isOpposite(number){
+		number = number.toString();
+		var len = number.length;
+		if (len % 2 == 0){
+			// 偶位数
+			left = Number(number.substr(0,len/2));
+			right = Number(number.substr(len/2,len/2));
+			if (getOpposite(left) == right) {
+				return true;
+			}
+		}else{
+			left = Number(number.substr(0,(len-1)/2));
+			right = Number(number.substr((len+1)/2,(len-1)/2));
+			if (getOpposite(left) == right) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	function getOpposite(number){
+		var str = number.toString();
+		var res=[];
+		for(i in str){
+			res.unshift(str[i]);
+		}
+		return Number(res.join(''));
+	}
+	// console.log(getSymmetricNumber(451));
+	// console.log(getSymmetricNumber(3840));
+	// console.log(getSymmetricNumber(3363));
+	console.log(getSymmetricNumber(999));
+
+	</script>
+</body>
+</html>

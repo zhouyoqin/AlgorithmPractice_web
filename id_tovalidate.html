@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	/*
+	编写Javascript代码，提取身份证的生日。
+18位身份证的编码规则是：
+前1、2位数字表示：所在省（直辖市、自治区）的代码
+第3、4位数字表示：所在地级市（自治州）的代码
+第5、6位数字表示：所在区（县、自治县、县级市）的代码；
+第7—14位数字表示：出生年、月、日；
+第15、16位数字表示：所在地的派出所的代码；
+第17位数字表示性别：奇数表示男性，偶数表示女性；
+第18位数字是校检码，用来检验身份证的正确性。
+现在要求给定任意身份证号，返回该身份证的出生日期信息，如果身份证格式不对，输出“ERROR”。
+	*
+	*/
+	function validateID(id) {
+		if (id.length != 18) {return 'ERROR'};
+		return id.substr(6,8);
+	}
+	console.log(validateID('502104198803308324'));
+	console.log(validateID('5021041988033084'))
+
+	</script>
+</body>
+</html>
