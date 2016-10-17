@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>this作用域</title>
+	<style>
+		a{
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li><a href="#">links</a></li>
+		<li><a href="#">links</a></li>
+		<li><a href="#">links</a></li>
+		<li><a href="#">links</a></li>
+		<li><a href="#">links</a></li>
+	</ul>
+	<script>
+	/*
+	在Javascript中this总是指向调用它所在方法的对象。
+	*/ 
+		function test() {
+			console.log(this);
+		}
+		var obj = function(){
+			var name = 'obj';
+		}
+		obj.objTest = test;
+		obj.objTest2 = function(){
+			test();
+		};
+		test();//window
+		obj.objTest();//function(){var name = 'obj'}
+		obj.objTest2();//window
+
+	/*
+	假设我们现在页面中的所有超链接在点击之后颜色要改为红色，用Javascript实现。大体的思路应该是获取页面中所有的<a>标签，然后遍历所有的<a>标签，给每一个注册一个click事件，事件触发后我们将它的color值设为red。
+	*/
+	function changeColor(){
+		this.style.color = '#f00';
+	}
+	function init(){
+		var allLinks = document.getElementsByTagName('a');
+		for(i in allLinks){
+			allLinks[i].onClick = changeColor;
+		}
+	}
+	init();
+	</script>
+</body>
+</html>
