@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2列布局的几种实现方式</title>
+	<style>
+		.section{
+			height: 100px;
+			width: 100%;
+			margin-top: 10px;
+		}
+		.section .left{
+			background-color: pink;
+			height: 100px;
+		}
+		.section .right{
+			background-color: #eee;
+			height: 100px;
+		}
+
+		.sec1 .left{
+			float: left;
+			width: 100px;
+		}
+		
+		.sec2{position: relative;}
+		.sec2 .left{
+			position: absolute;
+			left: 0;top: 0;
+			width: 100px;
+		}
+		.sec2 .right{
+			position: absolute;
+			left: 100px;top: 0;right: 0;
+		}
+
+		.sec3{
+			display: flex;
+			flex-flow:row;
+		}
+		.sec3 .left{
+			width: 100px;
+		}
+		.sec3 .right{
+			flex:1;
+		}
+
+		.sec4{
+			width: 100%;
+		}
+		.sec4 .left{
+			display: inline-block;
+			width: 100px;
+		}
+		.sec4 .right{
+			display: inline-block;
+			width: calc(100% - 100px);
+		}		
+	</style>
+</head>
+<body>
+	<h1>float方式</h1>
+	<div class="section sec1">
+		<div class="left"></div>
+		<div class="right"></div>
+	</div>
+	
+	<h1>绝对定位</h1>
+	<div class="section sec2">
+		<div class="left"></div>
+		<div class="right"></div>
+	</div>
+
+	<h1>flex布局</h1>
+	<div class="section sec3">
+		<div class="left"></div>
+		<div class="right"></div>
+	</div>
+
+	<h1>calc????</h1>
+	<div class="section sec4">
+		<div class="left"></div>
+		<div class="right"></div>
+	</div>
+	
+</body>
+</html>
