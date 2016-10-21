@@ -2,18 +2,70 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>js原型链</title>
+	<title>js原型链和继承</title>
 </head>
 <body>
 	<script>
-		var person = function (name) {
-			this.name = name;
-		}
-		person.propotype.getName = function(){
-			return this.name;
-		}
-		var male = new person();
-		male.propotype.get
+	// 元
+	function Func(){}
+    Func.prototype.name = "Sean";
+    Func.prototype.getInfo = function() {
+      return this.name;
+    }
+    var person = new Func();//现在可以参考var person = Object.create(oldObject);
+    console.log(person.getInfo());//它拥有了Func的属性和方法
+    //"Sean"
+    console.log(Func.prototype);
+    // Func { name="Sean", getInfo=function()}
+
+    //继承五种方法
+
+    //1、构造函数绑定
+    function Animal(){
+    	this.species = "动物";
+    }
+    function Cat(name,color){
+    	Animal.apply(this, arguments);
+    	this.name = name;
+    	this.color = color;
+    }
+    var cat1 = new Cat("大毛","黄色");
+    console.log(cat1.species);
+
+	//2、prototype继承
+    function Animal(){
+    	this.species = "动物";
+    }
+    function Cat(name,color){
+    	this.name = name;
+    	this.color = color;
+    }
+    Cat.prototype = new Animal();//相当于完全删除了prototype 对象原先的值，然后赋予一个新值
+    Cat.prototype.constructor = Cat;//任何一个prototype对象都有一个constructor属性，指向它的构造函数。如果没有"Cat.prototype = new Animal();"这一行，Cat.prototype.constructor是指向Cat的；加了这一行以后，Cat.prototype.constructor指向Animal。这显然会导致继承链的紊乱（cat1明明是用构造函数Cat生成的），因此我们必须手动纠正，将Cat.prototype对象的constructor值改为Cat。
+    var cat1 = new Cat("大毛","黄色");
+    console.log(cat1.species);
+
+    //3、直接继承prototype
+    function Animal(){
+    	this.species = "动物";
+    }
+    function Cat(name,color){
+    	this.name = name;
+    	this.color = color;
+    }
+    Cat
+
+
+
+
+
+
+
+
+
+
+
+
 	</script>
 </body>
 </html>
