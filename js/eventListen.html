@@ -6,7 +6,7 @@
 </head>
 <body>
 	<script>
-	写一个通用的事件侦听器函数。
+	// 写一个通用的事件侦听器函数。
 
     // event(事件)工具集，来源：github.com/markyun
     markyun.Event = {
@@ -25,7 +25,7 @@
                 };
             }
         },
-        // 视能力分别使用dom0||dom2||IE方式 来绑定事件
+        // 视能力分别使用dom0||dom2||IE方式 来绑定事件 
         // 参数： 操作的元素,事件名称 ,事件处理程序
         addEvent : function(element, type, handler) {
             if (element.addEventListener) {
